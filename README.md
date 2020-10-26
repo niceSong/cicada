@@ -15,7 +15,8 @@ repositories {
 }
 
 dependencies{
-    implementation 'com.github.niceSong.cicada:cicada:v1.0.0'
+    implementation 'com.github.niceSong.cicada:cicada-web:v1.0.0'
+    implementation 'com.github.niceSong.cicada:cicada-exception:v1.0.0'
 }
 ```
 # 如何使用

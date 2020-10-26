@@ -17,6 +17,7 @@ subprojects{
         mavenCentral()
         jcenter()
         google()
+        maven { url 'https://jitpack.io' }
     }
 
     apply plugin: 'java'

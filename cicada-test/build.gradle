@@ -3,8 +3,10 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 
 dependencies {
-    compile project(":cicada-exceptor")
-    compile project(":cicada-web")
+//    compile project(":cicada-exception")
+//    compile project(":cicada-web")
+    implementation 'com.github.niceSong.cicada:cicada-web:v1.0.0'
+    implementation 'com.github.niceSong.cicada:cicada-exception:v1.0.0'
     compileOnly group: 'org.springframework.boot', name: 'spring-boot-starter', version: SPRINGBOOT_VERSION
     annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: SPRINGBOOT_VERSION
     implementation 'org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE'
