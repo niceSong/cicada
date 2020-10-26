@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile project(":cicada-exceptor")
+    compile project(":cicada-web")
+    compileOnly group: 'org.springframework.boot', name: 'spring-boot-starter', version: SPRINGBOOT_VERSION
+    annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: SPRINGBOOT_VERSION
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE'
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.1.10.RELEASE")
+}
+
+test {
+    useJUnitPlatform()
+}

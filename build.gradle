@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.tyytogether'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+subprojects{
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+    }
+
+    apply plugin: 'java'
+}

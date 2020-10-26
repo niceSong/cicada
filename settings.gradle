@@ -1,0 +1,5 @@
+rootProject.name = 'cicada'
+
+include 'cicada-exceptor'
+include 'cicada-web'
+include 'cicada-test'
