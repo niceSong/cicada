@@ -10,5 +10,4 @@ import java.lang.annotation.*;
 @Documented
 @Import(BeanRegister.class)
 public @interface CicadaScan {
-    String path() default  "";
 }
