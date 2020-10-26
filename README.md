@@ -7,7 +7,7 @@
 ```
                                
 # 简介
-一款简单易用的异常处理框架。
+**一款非常简单易用的异常处理框架。只需简单使用注解，即可抛出优美的异常被客户端接收。**
 # gradle添加依赖
 ```groovy
 repositories {
@@ -30,6 +30,7 @@ public class TestApplication {
     }
 }
 ```
+`@CicadaScan`用于扫描`@CicadaBean`注解的接口。
 ## 定义异常
 ```java
 @CicadaBean(namespace = "test")
@@ -38,7 +39,7 @@ public interface TestException {
     CicadaException fuckException();
 }
 ```
-只需定义接口，框架会使用动态代理注入spring。
+只需定义接口，框架会动态代理生成`Bean`注入`spring`。
 ## 抛出异常
 ```java
 @Autowired
@@ -49,3 +50,15 @@ public void test(){
     throw testException.fuckException();
 }
 ```
+`Autowired`依赖注入，即可调用接口方法抛出异常。
+
+客户端收到异常格式如下：
+```json
+{
+    "errCode": 1000,
+    "nameSpace": "test",
+    "errMessage": "Fuck you",
+    "stackTrace": "..."
+}
+```
+使用愉快，有问题欢迎随时`issues`。
