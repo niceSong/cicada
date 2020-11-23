@@ -17,8 +17,7 @@ public class TestController {
 
     @GetMapping(value = "/test")
     public void test(){
-        throw testException.fuckException();
-//        testService.testCicada();
+        throw testException.fuckException("You throw cicada exception successfully");
     }
 
 }

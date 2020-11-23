@@ -6,6 +6,6 @@ import org.tyytogether.exception.CicadaException;
 
 @CicadaBean(namespace = "test")
 public interface TestException {
-    @ExceptionInfo(errCode = 1000, errMessage = "Fuck you")
-    CicadaException fuckException();
+    @ExceptionInfo(errCode = 1000)
+    CicadaException fuckException(String errMsg);
 }

@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies{
-    implementation 'com.github.niceSong.cicada:cicada-web:v1.0.0'
-    implementation 'com.github.niceSong.cicada:cicada-exception:v1.0.0'
+    implementation 'com.github.niceSong.cicada:cicada-web:v1.0.1'
+    implementation 'com.github.niceSong.cicada:cicada-exception:v1.0.1'
 }
 ```
 # 如何使用
@@ -35,7 +35,7 @@ public class TestApplication {
 ```java
 @CicadaBean(namespace = "test")
 public interface TestException {
-    @ExceptionInfo(errCode = 1000, errMessage = "Fuck you")
+    @ExceptionInfo(errCode = 1000)
     CicadaException fuckException();
 }
 ```
@@ -47,7 +47,7 @@ TestException testException;
 
 @GetMapping(value = "/test")
 public void test(){
-    throw testException.fuckException();
+    throw testException.fuckException("You throw cicada exception successfully");
 }
 ```
 `Autowired`依赖注入，即可调用接口方法抛出异常。
@@ -57,7 +57,7 @@ public void test(){
 {
     "errCode": 1000,
     "nameSpace": "test",
-    "errMessage": "Fuck you",
+    "errMessage": "You throw cicada exception successfully",
     "stackTrace": "..."
 }
 ```

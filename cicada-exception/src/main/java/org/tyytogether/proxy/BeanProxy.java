@@ -6,6 +6,7 @@ import org.tyytogether.exception.CicadaException;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 public class BeanProxy implements InvocationHandler {
     String nameSpace;
@@ -17,6 +18,10 @@ public class BeanProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         ExceptionInfo exceptionInfo = method.getAnnotation(ExceptionInfo.class);
-        return new CicadaException(nameSpace, exceptionInfo.errCode(), exceptionInfo.errMessage());
+        String errMsg = "";
+        for(Object p: args){
+            errMsg += p;
+        }
+        return new CicadaException(nameSpace, exceptionInfo.errCode(), errMsg);
     }
 }

@@ -21,7 +21,7 @@ public class TestService implements ApplicationContextAware {
     ApplicationContext ctx;
 
     @PostConstruct
-    void first(){
+    void printBean(){
         ctx.getType("cicada org.tyytogetheyy.exception.TestException");
         List<String> beanNames = Stream.of(ctx.getBeanDefinitionNames()).collect(Collectors.toList());
         beanNames.forEach(it-> {
@@ -31,7 +31,7 @@ public class TestService implements ApplicationContextAware {
 
     public void testCicada(){
         System.out.println("test");
-        testException.fuckException();
+        throw testException.fuckException("You throw cicada exception successfully");
     }
 
     @Override

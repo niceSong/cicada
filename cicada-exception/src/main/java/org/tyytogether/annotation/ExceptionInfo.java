@@ -7,5 +7,4 @@ import java.lang.annotation.*;
 @Documented
 public @interface ExceptionInfo {
     int errCode() default 0;
-    String errMessage() default "";
 }
