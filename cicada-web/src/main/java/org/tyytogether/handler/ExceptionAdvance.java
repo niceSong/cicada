@@ -1,6 +1,8 @@
 package org.tyytogether.handler;
 
 import com.google.gson.Gson;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,6 +17,7 @@ import java.util.stream.Collectors;
 import static org.tyytogether.enums.ErrCodeEnum.UNKNOWN_EXCEPTION;
 
 @ControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionAdvance {
 
     private Gson gson = new Gson();
