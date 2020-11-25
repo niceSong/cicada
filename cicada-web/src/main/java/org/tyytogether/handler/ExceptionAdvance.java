@@ -25,6 +25,7 @@ public class ExceptionAdvance {
     @ExceptionHandler(CicadaException.class)
     @ResponseBody
     public String CicadaExceptionHandler(CicadaException ex){
+        ex.printStackTrace();
         ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getErrCode(), ex.getNameSpace(), ex.getErrMessage(), getStackTrace(ex));
         return gson.toJson(exceptionDTO);
     }
@@ -32,6 +33,7 @@ public class ExceptionAdvance {
     @ExceptionHandler(Throwable.class)
     @ResponseBody
     public String allExceptionHandler(Throwable ex){
+        ex.printStackTrace();
         ExceptionDTO exceptionDTO = new ExceptionDTO(UNKNOWN_EXCEPTION.getErrCode(), "Unknown", "System exception，See log detail", getStackTrace(ex));
         return gson.toJson(exceptionDTO);
     }
