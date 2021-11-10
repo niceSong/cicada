@@ -1,5 +1,7 @@
-apply plugin: 'java'
+apply plugin: "maven-publish"
+apply plugin: "com.jfrog.artifactory"
 
+version '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 dependencies {
@@ -16,6 +18,43 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 }
 
+apply plugin: 'java'
+
 test {
     useJUnitPlatform()
+}
+
+// 打包源码
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"
+    publish {
+        repository {
+            repoKey = "${artifactory_name}"
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+        }
+        defaults {
+            publications ('mavenJava')
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            from components.java
+            // 配置上传源码
+            artifact sourceJar {
+                classifier "src"
+            }
+        }
+    }
 }

@@ -1,0 +1,8 @@
+org/tyytogetheyy/TestApplication.java
+ org.tyytogetheyy.TestApplication
+org/tyytogetheyy/service/TestService.java
+ org.tyytogetheyy.service.TestService
+org/tyytogetheyy/controller/TestController.java
+ org.tyytogetheyy.controller.TestController
+org/tyytogetheyy/exception/TestException.java
+ org.tyytogetheyy.exception.TestException

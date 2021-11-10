@@ -20,4 +20,8 @@ public class TestController {
         throw testException.fuckException("You throw cicada exception successfully");
     }
 
+    @GetMapping(value = "/test2")
+    public void test2(){
+        throw testException.fuckException("");
+    }
 }

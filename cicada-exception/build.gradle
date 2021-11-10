@@ -1,6 +1,9 @@
-apply plugin: 'java'
+apply plugin: "java"
+apply plugin: "maven-publish"
+apply plugin: "com.jfrog.artifactory"
 
 sourceCompatibility = 1.8
+version '0.0.1-SNAPSHOT'
 
 dependencies {
     compileOnly group: 'org.springframework.boot', name: 'spring-boot-starter', version: SPRINGBOOT_VERSION
@@ -10,4 +13,40 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+}
+
+// 打包源码
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"
+    publish {
+        repository {
+            repoKey = "${artifactory_name}"
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+        }
+        defaults {
+            publications ('mavenJava')
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            from components.java
+
+            // 配置上传源码
+            artifact sourceJar {
+                classifier "src"
+            }
+        }
+    }
 }

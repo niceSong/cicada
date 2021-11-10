@@ -1,0 +1,34 @@
+{
+  "version" : "1.0.1",
+  "name" : "cicada",
+  "number" : "1634546487388",
+  "buildAgent" : {
+    "name" : "Gradle",
+    "version" : "5.6"
+  },
+  "agent" : {
+    "name" : "Gradle",
+    "version" : "5.6"
+  },
+  "started" : "2021-10-18T16:41:27.383+0800",
+  "durationMillis" : 14,
+  "principal" : "tangyuyao",
+  "artifactoryPrincipal" : "tangyuyao",
+  "artifactoryPluginVersion" : "Unknown",
+  "vcs" : [ ],
+  "licenseControl" : {
+    "runChecks" : false,
+    "includePublishedArtifacts" : false,
+    "autoDiscover" : false,
+    "licenseViolationsRecipientsList" : "",
+    "scopesList" : ""
+  },
+  "governance" : {
+    "blackDuckProperties" : {
+      "runChecks" : false,
+      "includePublishedArtifacts" : false,
+      "autoCreateMissingComponentRequests" : false,
+      "autoDiscardStaleComponentRequests" : false
+    }
+  }
+}

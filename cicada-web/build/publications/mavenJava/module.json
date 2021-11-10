@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "cicada",
+    "module": "cicada-web",
+    "version": "0.0.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.9.1",
+      "buildId": "2tyj4x272bdadplgzltpb67bqi"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "cicada",
+          "module": "cicada-exception",
+          "version": {
+            "requires": "0.0.1-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cicada-web-0.0.1-SNAPSHOT.jar",
+          "url": "cicada-web-0.0.1-SNAPSHOT.jar",
+          "size": 4438,
+          "sha512": "8348eca05f00527c2ba56f573d31322b1319e8650507c9613da059f2671f0ae8bbf97e55edf15f3f2b976834772368e2ee9524f71d8ed4e6c27481ebc8b22959",
+          "sha256": "ce160b2eae766e1d2e3f85235c59b174d91ec5ef9806cace7ffff1d581eebc6b",
+          "sha1": "f2d39e60e4fc9b8d329d0729abdd449c1ab73dc5",
+          "md5": "fdd8dab47d460baccf668d98d1c96119"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-web",
+          "version": {
+            "requires": "2.2.5.RELEASE"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "cicada",
+          "module": "cicada-exception",
+          "version": {
+            "requires": "0.0.1-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cicada-web-0.0.1-SNAPSHOT.jar",
+          "url": "cicada-web-0.0.1-SNAPSHOT.jar",
+          "size": 4438,
+          "sha512": "8348eca05f00527c2ba56f573d31322b1319e8650507c9613da059f2671f0ae8bbf97e55edf15f3f2b976834772368e2ee9524f71d8ed4e6c27481ebc8b22959",
+          "sha256": "ce160b2eae766e1d2e3f85235c59b174d91ec5ef9806cace7ffff1d581eebc6b",
+          "sha1": "f2d39e60e4fc9b8d329d0729abdd449c1ab73dc5",
+          "md5": "fdd8dab47d460baccf668d98d1c96119"
+        }
+      ]
+    }
+  ]
+}

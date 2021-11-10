@@ -1,0 +1,8 @@
+{
+  "type" : "gradle",
+  "id" : "cicada:cicada-web:0.0.1-SNAPSHOT",
+  "repository" : "",
+  "artifacts" : [ ],
+  "excludedArtifacts" : [ ],
+  "dependencies" : [ ]
+}

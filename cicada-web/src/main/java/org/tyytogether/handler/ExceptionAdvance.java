@@ -20,28 +20,26 @@ import static org.tyytogether.enums.ErrCodeEnum.UNKNOWN_EXCEPTION;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionAdvance {
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @ExceptionHandler(CicadaException.class)
     @ResponseBody
-    public String CicadaExceptionHandler(CicadaException ex){
+    public ResponseEntity<String> CicadaExceptionHandler(CicadaException ex){
         ex.printStackTrace();
         ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getErrCode(), ex.getNameSpace(), ex.getErrMessage(), getStackTrace(ex));
-        return gson.toJson(exceptionDTO);
+        return new ResponseEntity<>(gson.toJson(exceptionDTO), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(Throwable.class)
     @ResponseBody
-    public String allExceptionHandler(Throwable ex){
+    public ResponseEntity<String> allExceptionHandler(Throwable ex){
         ex.printStackTrace();
         ExceptionDTO exceptionDTO = new ExceptionDTO(UNKNOWN_EXCEPTION.getErrCode(), "Unknown", "System exception，See log detail", getStackTrace(ex));
-        return gson.toJson(exceptionDTO);
+        return new ResponseEntity<>(gson.toJson(exceptionDTO), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private String getStackTrace(Throwable ex){
-        return Arrays.stream(ex.getStackTrace()).map(it->{
-            return it.toString();
-        }).collect(Collectors.joining("\n"));
+        return Arrays.stream(ex.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.joining("\n"));
     }
 
 }

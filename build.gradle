@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.18.0"
+    }
+}
+
 plugins {
     id 'java'
 }
@@ -7,17 +16,12 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
 subprojects{
     repositories {
         mavenCentral()
         jcenter()
         google()
-        maven { url 'https://jitpack.io' }
+        maven {url 'https://jitpack.io'}
     }
 
     apply plugin: 'java'
